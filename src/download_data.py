@@ -1,18 +1,19 @@
-""" Downloads zip file from the web to a local filepath.
-Usage: download_data.py --url=<url> --out_file=<out_file>
+""" Downloads zip file from the web and saves contents to a local directory.
+Usage: download_data.py --url=<url> --out_dir=<out_dir>
 Options:
---url=<url>               URL to download data (as zip) from
---out_file=<out_file>     Path (including file name) where to write the file
+--url=<url>             URL to download data (as zip) from
+--out_dir=<out_dir>     Path to write the unziped contents to 
 """
 
 
 import requests
-import os
 from docopt import docopt
+from zipfile import ZipFile
+from io import BytesIO
 
 opt = docopt(__doc__)
 
-def main(url, out_file):
+def main(url, out_dir):
     
     #check if URL is valid
     try: 
@@ -22,10 +23,10 @@ def main(url, out_file):
         print("the URL provided is invalid")
         print(ex)
     
-    # save zip file
-    with open(out_file, 'wb') as f:
-        f.write(request.content)
+    # unzip and save contents
+    with ZipFile(BytesIO(request.content)) as zip_file_object:
+        zip_file_object.extractall(out_dir)
 
 
 if __name__ == "__main__":
-    main(opt['--url'],opt['--out_file'])
+    main(opt['--url'],opt['--out_dir'])
