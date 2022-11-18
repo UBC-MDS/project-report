@@ -5,11 +5,10 @@ Options:
 --out_dir=<out_dir>     Path to write the unziped contents to 
 """
 
-
-import requests
-from docopt import docopt
 from zipfile import ZipFile
 from io import BytesIO
+import requests
+from docopt import docopt
 
 opt = docopt(__doc__)
 
