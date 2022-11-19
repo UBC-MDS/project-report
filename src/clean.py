@@ -63,7 +63,7 @@ def main(in_file, out_file):
 
     # rename columns for readability
     df = df.rename(columns = {  
-                                'DIABETE3':'Diabetes', 
+                                'DIABETE3':'Diabetes_012', 
                                 '_RFHYPE5':'HighBP',  
                                 'TOLDHI2':'HighChol',
                                 '_CHOLCHK':'CholCheck', 
