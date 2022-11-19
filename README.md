@@ -36,16 +36,16 @@ python src/clean.py --in_file="data/raw/LLCP2015.XPT " --out_file="data/clean/LL
 ```
 ## The Data Set
 
-The data set used in this project is a modified and clean dataset taken from the Disease Control and Prevention (CDC), through the Behavioral Risk Factor Surbellance System (BRFSS) for the year of 2015. This dataset is annually collected by the CDC, which is a health-related phone survey. This dataset can be accessed through the CDC and can be found [here](https://www.cdc.gov/brfss/annual_data/annual_2015.html).
+The data set used in this project to predict diabetes is taken from the Center for Disease Control and Prevention (CDC), through the Behavioral Risk Factor Surbellance System (BRFSS) for the year of 2015. This dataset is collected annually by the CDC, via a phone survey of over 400,000 Americans on health-related risk behaviours, chronic health conditions, and the use of preventative services. Details of this dataset can be found [here](https://www.cdc.gov/brfss/annual_data/annual_2015.html).
 
-The modified and cleaned dataset follows the approach used in the Diabetes Health Indicator Dataset from Kaggle found [here](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset) to include health indicators relating to diabetes.
+We modified and cleaned the fulL CDC dataset to include only project relevant variables following a approach used by Alex Teboul in `Diabetes Health Indicators Dataset Notebook` on Kaggle found [here](https://www.kaggle.com/code/alexteboul/diabetes-health-indicators-dataset-notebook/notebook).
 
-The dataset consist of 22 columns; one target and 21 features. The target variable has three classes:
+The dataset consist of 22 columns; one target and 21 feature variables. We found from our EDA that there does exist class imbalance in the dataset. Each row in our dataset represents health indicators from every respondent. The target variable, `Diabetes_012`,  has three classes:
 * 0 : no diabetes or only during pregnancy,
 * 1 : for prediabetes, 
 * 2 : diabetes. 
 
-The feature variables in this dataset includes: 
+### The feature variables in this dataset includes: 
 
 |Variabl | Type | Question | Values |
 | -------|------|-----| -------|
@@ -71,33 +71,6 @@ The feature variables in this dataset includes:
 |**Education**| ordinal|| 6-level education category|
 |**Income**| ordinal| |8-level income category|
 
-The data set used in to predict diabete is called the Diabetes Health Indicators Dataset. This information in this dataset has been obtain through a survey collects responses from over 400,000 Americans on health-related risk behaviors, chronic health conditions, and the use of preventative services from the year 2015.  This dataset has been released by the Centers for Disease Control and Prevention (CDC) . Details of this dataset can be found [here.](https://www.cdc.gov/brfss/annual_data/annual_2015.html)
-Each row in our dataset represents health indicators from every respondent. There are several observations and 22 features. The target variable Diabetes_012 has 3 classes. 0 is for no diabetes or only during pregnancy, 1 is for prediabetes, and 2 is for diabetes. There is class imbalance in this dataset. This dataset has 21 feature variables.
-
-The folowing is a list of the features in this dataset:
-
-HighBP; 
-HighChol: Cholesterol level
-CholCheck: When was cholesterol level
-BMI: Body Mass Index
-Smoker: Have you smoked at least 100 cigarettes in your entire life? 
-Stroke: Had a stroke?
-HearDiseaseofAttack: Coronary heart disease(CHD) or myocardial infarction(MI)?
-PhysActivity: Physical activity in past 30 days - not including job?
-Fruits: Consume fruit 1 or more times per day?
-Veggies: Consume vegetables 1 or more times per day?
-HvyAlcoholConsump: Heavy drinker?
-AnyHealthcare: Any kind of heath care coverage?
-NoDocbcCost: Was there a time in past 12 months, you needed to see a doctor but could not due to the cost?
-GenHlth: Your health scale?
-MentHlth: How many days of poor mental health during last 30 days?
-PhysHlth: How many days of poor physical health during last 30 days?
-DiffWalk: Do you have serious difficulty walking or climbing stairs?
-Sex: gender 
-Age: 13-level age category
-Education:6-level education category
-Income:8-level income category
-
 ## Project Plan
 
 To answer the above project question, We start by conducting an exploratory data analysis(EDA) on the dataset. Through the EDA, we will be exploring the features more in details to help us make decisions like scaling cilumns or dropping some columns. The problem that we will be tackling in this study is a classification problem. Since it is a classification problem, the possible supervised learning techniques that we might end up exploring will include DecisionTree, Logistic Regression and SVC. After chosing the machine learning technique, we will do hyperparameter tuning to find the best parameter combinations. Since, we are trying to predict wether a person has diabete or not based on health indicators, it is important to analyze feature importance in order to find the feature which is crucial in determining if a person has a diabete or not.
@@ -105,28 +78,26 @@ After choosing our final model, we will re-fit the model on the entire training 
 
 ## Dependencies
 Python:
--`ipykernel`
--`matplotlib>=3.2.2`
--`scikit-learn>=1.1.3`
--`requests>=2.24.0`
--`graphviz`
--`python-graphviz`
--`eli5`
--`shap`
--`jinja2`
--`altair_saver`
--`selenium<4.3.0`
--`pandas<1.5`
--`imbalanced-learn`
--`pip`
--`lightgbm`
+- `ipykernel`
+- `matplotlib>=3.2.2`
+- `scikit-learn>=1.1.3`
+- `requests>=2.24.0`
+- `graphviz`
+- `python-graphviz`
+- `eli5`
+- `shap`
+- `jinja2`
+- `altair_saver`
+- `selenium<4.3.0`
+- `pandas<1.5`
+- `imbalanced-learn`
+- `pip`
+- `lightgbm`
 
 ## License 
 
 This project ( diabete prediction) is  licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0). If re-using/re-mixing please provide attribution and link to this webpage.
 ## References
 
-- The CDC BRFSS survey can be accessed [here] (https://www.cdc.gov/brfss/annual_data/annual_2015.html).
-- The referenced Kaggle diabete dataset, Diabetes Health Indicator Dataset, is publicly available for research and can be accessed [here] (https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset)
-
-The diabete dataset Diabetes Health indicator dataset is publicly available for research. The details are described [here.](https://www.cdc.gov/brfss/annual_data/annual_2015.html)
+- The CDC BRFSS survey can be accessed [here](https://www.cdc.gov/brfss/annual_data/annual_2015.html).
+- The referenced Kaggle diabete dataset, Diabetes Health Indicator Dataset, is publicly available for research and can be accessed [here](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset)
