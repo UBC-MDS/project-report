@@ -15,24 +15,37 @@ With these alarming figures, many experts claim that it is important to have a g
 
 
 ## Research Question 
-The major research question which has been addressed in this project is to predict the probability of a person suffering from diabetes, according to some information about their health condition and lifestyle. Addressing the question faces several limitations. For example, we need to identify the minimum number of crucial factors that can lead to a sufficiently accurate prediction. Also, as the data set used in this project is not balanced, we need to take care of various metrics to make sure the prediction is sufficiently reliable. 
+
+Given a person's health indicators (BMI, smoker, physical activity), is he or she having diabete?
 
 
-## Accessing the data
-Please run the following command to automatically download the dataset used in this study
+## Usage
+
+To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and:
 
 
+Run the following command to download the data:
+```
+python src/download_data.py --url=https://www.cdc.gov/brfss/annual_data/2015/files/LLCP2015XPT.zip --out_dir=data/raw
+```
+
+Run the following command to clean the downloaded data:
+
+```
+python src/clean.py --in_file="data/raw/LLCP2015.XPT " --out_file="data/clean/LLCP2015_clean.csv"
+```
 ## The Data Set
-The data set used in this project is a modified and clean dataset taken from the Disease Control and Prevention (CDC), through the Behavioral Risk Factor Surbellance System (BRFSS) for the year of 2015. This dataset is annually collected by the CDC, which is a health-related phone survey. This dataset can be accessed through the CDC and can be found [here](https://www.cdc.gov/brfss/annual_data/annual_2015.html).
 
-The modified and cleaned dataset follows the approach used in the Diabetes Health Indicator Dataset from Kaggle found [here](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset) to include health indicators relating to diabetes.
+The data set used in this project to predict diabetes is taken from the Center for Disease Control and Prevention (CDC), through the Behavioral Risk Factor Surbellance System (BRFSS) for the year of 2015. This dataset is collected annually by the CDC, via a phone survey of over 400,000 Americans on health-related risk behaviours, chronic health conditions, and the use of preventative services. Details of this dataset can be found [here](https://www.cdc.gov/brfss/annual_data/annual_2015.html).
 
-The dataset consist of 22 columns; one target and 21 features. The target variable has three classes:
+We modified and cleaned the fulL CDC dataset to include only project relevant variables following a approach used by Alex Teboul in `Diabetes Health Indicators Dataset Notebook` on Kaggle found [here](https://www.kaggle.com/code/alexteboul/diabetes-health-indicators-dataset-notebook/notebook).
+
+The dataset consist of 22 columns; one target and 21 feature variables. We found from our EDA that there does exist class imbalance in the dataset. Each row in our dataset represents health indicators from every respondent. The target variable, `Diabetes_012`,  has three classes:
 * 0 : no diabetes or only during pregnancy,
 * 1 : for prediabetes, 
 * 2 : diabetes. 
 
-The feature variables in this dataset includes: 
+### The feature variables in this dataset includes: 
 
 |Variabl | Type | Question | Values |
 | -------|------|-----| -------|
@@ -58,30 +71,33 @@ The feature variables in this dataset includes:
 |**Education**| ordinal|| 6-level education category|
 |**Income**| ordinal| |8-level income category|
 
+## Project Plan
+
+To answer the above project question, We start by conducting an exploratory data analysis(EDA) on the dataset. Through the EDA, we will be exploring the features more in details to help us make decisions like scaling cilumns or dropping some columns. The problem that we will be tackling in this study is a classification problem. Since it is a classification problem, the possible supervised learning techniques that we might end up exploring will include DecisionTree, Logistic Regression and SVC. After chosing the machine learning technique, we will do hyperparameter tuning to find the best parameter combinations. Since, we are trying to predict wether a person has diabete or not based on health indicators, it is important to analyze feature importance in order to find the feature which is crucial in determining if a person has a diabete or not.
+After choosing our final model, we will re-fit the model on the entire training data set after preprocessing and evaluate its performance on the test data set. We will then look at overall accuracy and how our model classified the test data observations. We will use a confusion matrix to present the results of the classification of our model.
 
 ## Dependencies
 Python:
--`ipykernel`
--`matplotlib>=3.2.2`
--`scikit-learn>=1.1.3`
--`requests>=2.24.0`
--`graphviz`
--`python-graphviz`
--`eli5`
--`shap`
--`jinja2`
--`altair_saver`
--`selenium<4.3.0`
--`pandas<1.5`
--`imbalanced-learn`
--`pip`
--`lightgbm`
-
+- `ipykernel`
+- `matplotlib>=3.2.2`
+- `scikit-learn>=1.1.3`
+- `requests>=2.24.0`
+- `graphviz`
+- `python-graphviz`
+- `eli5`
+- `shap`
+- `jinja2`
+- `altair_saver`
+- `selenium<4.3.0`
+- `pandas<1.5`
+- `imbalanced-learn`
+- `pip`
+- `lightgbm`
 
 ## License 
-The data set which will be used in predicting if a patient has diabete or not is released  by the Centers for Disease Control and Prevention (CDC) . Details of this dataset can be found [here] (https://www.cdc.gov/brfss/annual_data/annual_2015.html).
 
+This project ( diabete prediction) is  licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0). If re-using/re-mixing please provide attribution and link to this webpage.
 ## References
-- The CDC BRFSS survey can be accessed [here] (https://www.cdc.gov/brfss/annual_data/annual_2015.html).
-- The referenced Kaggle diabete dataset, Diabetes Health Indicator Dataset, is publicly available for research and can be accessed [here] (https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset)
 
+- The CDC BRFSS survey can be accessed [here](https://www.cdc.gov/brfss/annual_data/annual_2015.html).
+- The referenced Kaggle diabete dataset, Diabetes Health Indicator Dataset, is publicly available for research and can be accessed [here](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset)
