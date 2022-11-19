@@ -5,8 +5,8 @@ This document outlines how to propose changes to this project
 Small typos or grammatical errors in documentation may be edited directly using
 the GitHub web interface, so long as the changes are made in the _source_ file.
 
-*  YES: you edit a roxygen comment in a `.R` file below `R/`.
-*  NO: you edit an `.Rd` file below `man/`.
+## Bug Fixes
+Look through the GitHub issues for tags with "bug" and "help wanted". Follow the below `Pull Request Process` to implement fixes.
 
 ## Prerequisites
 Before you make a substantial pull request, you should always file an issue and
