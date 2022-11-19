@@ -5,20 +5,24 @@ Contributors:
 - Austin Shih
 - Roan Raina
 - Mehdi Naji
-## Goal: This project aims to build a model which will be able to predict if a patient has diabete or not given some information about his/her health indicators.
+
+### Goal: This project aims to build a model which will be able to predict if a patient has diabete or not given some information about his/her health indicators.
+
 
 ## Introduction
-
 Diabete is a disease which affects many people around the world. This disease is the result of the lack of insulin in the body. Insulin is a hormone produced by your pancreas whose role is to regulate the amount of glucose in the blood. Blood sugar must be carefully regulated to ensure that the body functions properly. Too much blood sugar can damage some organs, like blood vessels and nerves. Our body also needs insulin in order to use sugar for energy. According to the International Diabetes Federation “In 2021, Approximately 537 million adults (20-79 years) are living with diabetes. The total number of people living with diabetes is projected to rise to 643 million by 2030 and 783 million by 2045”.
 With these alarming figures, many experts claim that it is important to have a good  lifestyle, i.g. physical activity and good eating habits, in order to avoid this disease or avoid its complicated form. Can we really tell if a person is suffering from diabetes or not, given some health information about the person's lifestyle?
+
 
 ## Research Question 
 
 Given a person's health indicators (BMI, smoker, physical activity), is he or she having diabete?
 
+
 ## Usage
 
 To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and:
+
 
 Run the following command to download the data:
 ```
@@ -31,6 +35,41 @@ Run the following command to clean the downloaded data:
 python src/clean.py --in_file="data/raw/LLCP2015.XPT " --out_file="data/clean/LLCP2015_clean.csv"
 ```
 ## The Data Set
+
+The data set used in this project is a modified and clean dataset taken from the Disease Control and Prevention (CDC), through the Behavioral Risk Factor Surbellance System (BRFSS) for the year of 2015. This dataset is annually collected by the CDC, which is a health-related phone survey. This dataset can be accessed through the CDC and can be found [here](https://www.cdc.gov/brfss/annual_data/annual_2015.html).
+
+The modified and cleaned dataset follows the approach used in the Diabetes Health Indicator Dataset from Kaggle found [here](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset) to include health indicators relating to diabetes.
+
+The dataset consist of 22 columns; one target and 21 features. The target variable has three classes:
+* 0 : no diabetes or only during pregnancy,
+* 1 : for prediabetes, 
+* 2 : diabetes. 
+
+The feature variables in this dataset includes: 
+
+|Variabl | Type | Question | Values |
+| -------|------|-----| -------|
+|**HighBP** | binary | high BP? | 0 = no & 1 = yes |
+|**HighChol** |binary | high cholesterol? | 0 = no & 1 = yes |
+| **CholCheck**| binary| cholesterol check in 5 years?| 0 = no & 1 = yes |
+|**BMI**| numeric| Body Mass Index | |
+|**Smoker**| binary| smoked at least 100 cigarettes in your entire life?| 0 = no & 1 = yes |
+|**Stroke** | binary| ever told you had a stroke?| 0 = no & 1 = yes|
+|**HeartDiseaseofAttack**| binary| coronary heart disease(CHD) or myocardial infarction(MI)?| 0 = no & 1 = yes|
+|**PhysActivity**| binary| physical activity in past 30 days - not including job?| 0 = no & 1 = yes|
+|**Fruits**| binary| consume fruit 1 or more times per day?| 0 = no & 1 = yes|
+|**Veggies**| binary| consume vegetables 1 or more times per day?| 0 = no & 1 = yes|
+|**HvyAlcoholConsump**| binary| heavy drinker?| 0 = no & 1 = yes|
+|**AnyHealthcare**| binary| any kind of heath care coverage?| 0 = no & 1 = yes|
+|**NoDocbcCost**| binary| Was there a time in past 12 months, you needed to see a doctor but could not due to the cost?| 0 = no & 1 = yes|
+|**GenHlth**|ordinal | your health scale? | 1 = excellent <br> 2 = very good <br> 3 = good <br> 4 = fair <br> 5 = poor|
+|**MentHlth**| ordinal| how many days of poor mental health during last 30 days?| from 1 to 30|
+|**PhysHlth**| ordinal| how many days of poor physical health during last 30 days?| from 1 to 30|
+|**DiffWalk**| binary| do you have serious difficulty walking or climbing stairs?| 0 = no & 1 = yes|
+|**Sex**| binary|| 0 = female & 1 = male|
+|**Age**| ordinal|| 13-level age category|
+|**Education**| ordinal|| 6-level education category|
+|**Income**| ordinal| |8-level income category|
 
 The data set used in to predict diabete is called the Diabetes Health Indicators Dataset. This information in this dataset has been obtain through a survey collects responses from over 400,000 Americans on health-related risk behaviors, chronic health conditions, and the use of preventative services from the year 2015.  This dataset has been released by the Centers for Disease Control and Prevention (CDC) . Details of this dataset can be found [here.](https://www.cdc.gov/brfss/annual_data/annual_2015.html)
 Each row in our dataset represents health indicators from every respondent. There are several observations and 22 features. The target variable Diabetes_012 has 3 classes. 0 is for no diabetes or only during pregnancy, 1 is for prediabetes, and 2 is for diabetes. There is class imbalance in this dataset. This dataset has 21 feature variables.
@@ -65,27 +104,29 @@ To answer the above project question, We start by conducting an exploratory data
 After choosing our final model, we will re-fit the model on the entire training data set after preprocessing and evaluate its performance on the test data set. We will then look at overall accuracy and how our model classified the test data observations. We will use a confusion matrix to present the results of the classification of our model.
 
 ## Dependencies
-
 Python:
--ipykernel
--matplotlib>=3.2.2
--scikit-learn>=1.1.3
--requests>=2.24.0
--graphviz
--python-graphviz
--eli5
--shap
--jinja2
--altair_saver
--selenium<4.3.0
--pandas<1.5
--imbalanced-learn
--pip
--lightgbm
+-`ipykernel`
+-`matplotlib>=3.2.2`
+-`scikit-learn>=1.1.3`
+-`requests>=2.24.0`
+-`graphviz`
+-`python-graphviz`
+-`eli5`
+-`shap`
+-`jinja2`
+-`altair_saver`
+-`selenium<4.3.0`
+-`pandas<1.5`
+-`imbalanced-learn`
+-`pip`
+-`lightgbm`
 
 ## License 
 
 This project ( diabete prediction) is  licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0). If re-using/re-mixing please provide attribution and link to this webpage.
 ## References
+
+- The CDC BRFSS survey can be accessed [here] (https://www.cdc.gov/brfss/annual_data/annual_2015.html).
+- The referenced Kaggle diabete dataset, Diabetes Health Indicator Dataset, is publicly available for research and can be accessed [here] (https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset)
 
 The diabete dataset Diabetes Health indicator dataset is publicly available for research. The details are described [here.](https://www.cdc.gov/brfss/annual_data/annual_2015.html)
