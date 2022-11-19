@@ -13,12 +13,23 @@ Diabete is a disease which affects many people around the world. This disease is
 With these alarming figures, many experts claim that it is important to have a good  lifestyle, i.g. physical activity and good eating habits, in order to avoid this disease or avoid its complicated form. Can we really tell if a person is suffering from diabetes or not, given some health information about the person's lifestyle?
 
 ## Research Question 
+
 Given a person's health indicators (BMI, smoker, physical activity), is he or she having diabete?
 
-## Accessing the data
+## Usage
 
-Please run the following command to automatically download the dataset used in this study
+To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and:
 
+Run the following command to download the data:
+```
+python src/download_data.py --url=https://www.cdc.gov/brfss/annual_data/2015/files/LLCP2015XPT.zip --out_dir=data/raw
+```
+
+Run the following command to clean the downloaded data:
+
+```
+python src/clean.py --in_file="data/raw/LLCP2015.XPT " --out_file="data/clean/LLCP2015_clean.csv"
+```
 ## The Data Set
 
 The data set used in to predict diabete is called the Diabetes Health Indicators Dataset. This information in this dataset has been obtain through a survey collects responses from over 400,000 Americans on health-related risk behaviors, chronic health conditions, and the use of preventative services from the year 2015.  This dataset has been released by the Centers for Disease Control and Prevention (CDC) . Details of this dataset can be found [here.](https://www.cdc.gov/brfss/annual_data/annual_2015.html)
