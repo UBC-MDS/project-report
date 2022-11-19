@@ -64,10 +64,6 @@ Income:8-level income category
 To answer the above project question, We start by conducting an exploratory data analysis(EDA) on the dataset. Through the EDA, we will be exploring the features more in details to help us make decisions like scaling cilumns or dropping some columns. The problem that we will be tackling in this study is a classification problem. Since it is a classification problem, the possible supervised learning techniques that we might end up exploring will include DecisionTree, Logistic Regression and SVC. After chosing the machine learning technique, we will do hyperparameter tuning to find the best parameter combinations. Since, we are trying to predict wether a person has diabete or not based on health indicators, it is important to analyze feature importance in order to find the feature which is crucial in determining if a person has a diabete or not.
 After choosing our final model, we will re-fit the model on the entire training data set after preprocessing and evaluate its performance on the test data set. We will then look at overall accuracy and how our model classified the test data observations. We will use a confusion matrix to present the results of the classification of our model.
 
-## EDA discussion
-
-
-
 ## Dependencies
 
 Python:
@@ -86,7 +82,6 @@ Python:
 -imbalanced-learn
 -pip
 -lightgbm
-
 
 ## License 
 
