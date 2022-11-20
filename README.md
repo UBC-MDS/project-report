@@ -59,17 +59,17 @@ The dataset consist of 22 columns; one target and 21 feature variables. We found
 |**PhysActivity**| binary| physical activity in past 30 days - not including job?| 0 = no & 1 = yes|
 |**Fruits**| binary| consume fruit 1 or more times per day?| 0 = no & 1 = yes|
 |**Veggies**| binary| consume vegetables 1 or more times per day?| 0 = no & 1 = yes|
-|**HvyAlcoholConsump**| binary| heavy drinker?| 0 = no & 1 = yes|
+|**HvyAlcoholConsump**| binary| Heavy drinkers (adult men having more than 14 drinks per week and adult women having more than 7 drinks per week)| 0 = no & 1 = yes|
 |**AnyHealthcare**| binary| any kind of heath care coverage?| 0 = no & 1 = yes|
 |**NoDocbcCost**| binary| Was there a time in past 12 months, you needed to see a doctor but could not due to the cost?| 0 = no & 1 = yes|
-|**GenHlth**|ordinal | your health scale? | 1 = excellent <br> 2 = very good <br> 3 = good <br> 4 = fair <br> 5 = poor|
+|**GenHlth**|ordinal | Would you say that in general your health is: | 1 = excellent <br> 2 = very good <br> 3 = good <br> 4 = fair <br> 5 = poor|
 |**MentHlth**| ordinal| how many days of poor mental health during last 30 days?| from 1 to 30|
 |**PhysHlth**| ordinal| how many days of poor physical health during last 30 days?| from 1 to 30|
 |**DiffWalk**| binary| do you have serious difficulty walking or climbing stairs?| 0 = no & 1 = yes|
-|**Sex**| binary|| 0 = female & 1 = male|
-|**Age**| ordinal|| 13-level age category|
-|**Education**| ordinal|| 6-level education category|
-|**Income**| ordinal| |8-level income category|
+|**Sex**| binary|Indicate sex of respondent.| 0 = female & 1 = male|
+|**Age**| ordinal|Fourteen-level age category| 13-level age category|
+|**Education**| ordinal|What is the highest grade or year of school you completed?| 6-level education category|
+|**Income**| ordinal| Is your annual household income from all sources?|8-level income category|
 
 ## Project Plan
 
@@ -93,6 +93,9 @@ Python:
 - `imbalanced-learn`
 - `pip`
 - `lightgbm`
+- `docopt`
+- `pandas`
+- `requests`
 
 ## License 
 
