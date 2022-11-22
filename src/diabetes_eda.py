@@ -3,14 +3,13 @@
 
 """Takes clean dataset from clean.py and produces exploratory data visualizations to better understand cleaned data.
 
-Usage: diabetes_eda.py --clean_data=<clean_data> --distr_file=<distr_file> --corr_file=<corr_file>
+Usage: diabetes_eda.py --clean_data=<clean_data> --output_file=<output_file>
 
 Options:
---clean_data=<clean_data>    Relative path of cleaned dataset 
---distr_file=<distr_file>    Relative path to output file directory
---corr_file=<corr_file>      Relative path to output file directory
+--clean_data=<clean_data>       Relative path of cleaned dataset 
+--output_file=<output_file>     Relative path to output file directory
 """
-# python diabetes_eda.py --clean_data=../data/clean/LLCP2015_cleaned.csv --distr_file=../results --corr_file=../results
+# python diabetes_eda.py --clean_data=../data/clean/LLCP2015_cleaned.csv --output_file='../results'
 
 # Imports 
 from docopt import docopt
@@ -22,12 +21,12 @@ import os
 # docopt 
 opt = docopt(__doc__)
 
-def main(clean_data, distr_file, corr_file):
+def main(clean_data, output_file):
 
     # create result directory
-    if os.path.exists("../results") == False:
+    if os.path.exists(output_file) == False:
         print('Results directory does not exist, creating directory...')
-        os.mkdir('../results')
+        os.mkdir(output_file)
     else:
         print('Results directory exists')
 
@@ -54,10 +53,8 @@ def main(clean_data, distr_file, corr_file):
         columns = 3)
 
     # save distribution plot
-    df_plot.save(distr_file + '/' +'distribution.png')
-
     try:
-        df_plot.save(distr_file + '/' +'distribution.png')
+        df_plot.save(output_file + '/' +'distribution.png')
         print("distribution plot generation complete")
     except FileNotFoundError as fx:
         print("Error in target file path")
@@ -69,7 +66,7 @@ def main(clean_data, distr_file, corr_file):
 
     # save correlation plot
     try:
-        corr_plot.to_excel(corr_file + '/' + 'correlation.xlsx')
+        corr_plot.to_excel(output_file + '/' + 'correlation.xlsx')
         print("correlation csv file generation complete")
     except FileNotFoundError as fx:
         print("Error in target file path")
@@ -77,4 +74,4 @@ def main(clean_data, distr_file, corr_file):
         print(type(fx))
 
 if __name__ == "__main__":
-    main(opt["--clean_data"], opt["--distr_file"], opt["--corr_file"])
+    main(opt["--clean_data"], opt["--output_file"])
