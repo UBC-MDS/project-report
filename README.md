@@ -96,6 +96,7 @@ Python:
 - `docopt`
 - `pandas`
 - `requests`
+- `openpyxl`
 
 ## License 
 
