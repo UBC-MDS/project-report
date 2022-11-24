@@ -1,0 +1,3 @@
+,RBF SVM Tune,RBF SVM Tune,RBF SVM Tune,Logistic Regression Tune,Logistic Regression Tune,Logistic Regression Tune
+,Accuracy Score,f1 Score,Recall Score,Accuracy Score,f1 Score,Recall Score
+0,0.69,0.38,0.792,0.735,0.391,0.708
